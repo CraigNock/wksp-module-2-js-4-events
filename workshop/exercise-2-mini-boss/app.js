@@ -14,37 +14,6 @@ let timeRefresh = setInterval(function() {
 }, 1000);
 
 //STOPWATCH
-
-// const stopButton = document.querySelector('#stopButton');
-// let watchMin = document.querySelector('#watchMin');
-// let watchSec = document.querySelector('#watchSec');
-
-// function dubDig(num) {
-//         if (num < 10) {
-//             num = "0" + num;
-//         }
-//         return num;
-//     }
-
-//     function watchStart(e) {
-//     // let watchPull = new Date(2020,02,06,00,00,00);
-//     console.log(watchPull);
-//     let minPull = dubDig(timePull.getMinutes() - timePull.getMinutes());
-//     console.log(minPull);
-//     let secPull = dubDig(watchPull.getSeconds());
-
-//     let watchRefresh = setInterval(function() {
-//         watchMin.innerText = `${minPull}`;
-//         watchSec.innerText = `${secPull}`;
-//     }, 1000);
-// };
-
-
-
-
-
-    
-    
     
     let watchMin = document.querySelector('#watchMin');
     watchMin.innerText = '00';
@@ -52,7 +21,10 @@ let timeRefresh = setInterval(function() {
     watchSec.innerText = '00';
     
     let onOff = 0
-    
+    let onCount = 0
+    let minCount = 0
+    let secCount = 0
+
     function count() {
         onOff += 1;
         console.log(onOff);
@@ -67,11 +39,11 @@ let timeRefresh = setInterval(function() {
     };
     
     function watchStart(e) {
-        console.log('aaaaa' + onOff);
+        // console.log('aaaaa' + onOff);
         if (onOff === 0) {
-            let onCount = setInterval(count,1000);
-            let minCount = setInterval(countMin, 60000);
-            let secCount = setInterval(countSec, 1000);
+            onCount = setInterval(count,1000);
+            minCount = setInterval(countMin, 60000);
+            secCount = setInterval(countSec, 1000);
         } else {
             clearInterval(onCount);
             clearInterval(secCount);
@@ -89,17 +61,20 @@ stopButton.addEventListener('click', watchStart)
 
 const timerButton = document.querySelector('#timerButton');
 const timer = document.querySelector('#timer');
-let userTime = 10; //
-timer.innerText = userTime;
 
 function timerStart(e) {
+    timerButton.removeEventListener('click', timerStart);
+    let userTime = document.querySelector('#timerInput').value; 
+    timer.innerText = userTime;
     const countdown = setInterval(function() {
     timer.innerText = `${timer.innerText - 1}`;
     }, 1000) ;
     let endTime = setTimeout(function(){
-        // document.removeEventListener('click', timeStart);
         clearInterval(countdown);
+        new Audio("./sound/toasty.ogg").play();
+        timerButton.addEventListener('click', timerStart);
     }, (userTime * 1000));
 };
 
 timerButton.addEventListener('click', timerStart);
+

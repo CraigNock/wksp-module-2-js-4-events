@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(87, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.zone {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+    width: 80vw;
+    
+}
+
+
+.buttons {
+    background-color: goldenrod;
+    margin: .5rem;
+    /* padding: .5rem; */
+    border-radius: 20px;
+    border-color: whitesmoke;
+    font-weight: 800;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    outline: none;
+}
+
+.start {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: rgb(43, 43, 43);
+    color: whitesmoke;
+    font-weight: 800;
+}
+
+/* rgb(14, 43, 26) */

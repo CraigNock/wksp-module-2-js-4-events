@@ -9,6 +9,21 @@ body {
     background-color: goldenrod;
 }
 
+h1 {
+    text-decoration: underline goldenrod;
+}
+
+button {
+    background-color: whitesmoke;
+    color: rgb(102, 77, 15);
+    font-weight: 800;
+    height: 1.8rem;
+    margin: 0;
+    border-radius: 5px;    
+
+
+}
+
 .section1, .section2, .section3 {
     text-align: center;
     height: fit-content;
@@ -41,7 +56,11 @@ body {
 }
 
 
-
+.section3 > input {
+    text-align: center;
+    padding-top: .25rem;
+    border-radius: 5px;    
+}
 
 
 .section3 > input {
