@@ -43,20 +43,10 @@ function randPos(name) {
     
     for (let z=0 ; z<20 ; z++){
         while ( x === locationX[z] && y === locationY[z]){
-        // while ((x <== (locationX[z] + 10)) ||  (x >== (locationX[z] - 10))  && 
-        // (y <== (locationY[z] + 10)) ||  (y >== (locationY[z] - 10))){
             x = Math.random() *100;
             y = Math.random() *100;
         };
     }
-
-    //padding to prevent overlap?
-    // let xPad = []
-    // let yPad = []
-    // for (let p = 0 ; p<10 ; p++)
-
-
-
     locationX.push(x, x+1, x-1, x+1, x-1);
     locationY.push(y, y+1, y-1, y-1, y+1);
 
@@ -71,17 +61,39 @@ function randPos(name) {
 function handleColorButton(e) {
     let bid = e.target;
     if (bid.className === 'buttons'){
-        console.log('y');
-        if (bid.style.backgroundColor === 'darkgreen'){
-            bid.style.backgroundColor = 'goldenrod';
-            bid.style.color = 'black';
-        } else {
-            bid.style.backgroundColor = 'darkgreen';
-            bid.style.color = 'whitesmoke';
-        }
+        
+        bid.style.backgroundColor = 'darkgreen';
+        bid.style.color = 'whitesmoke';
     }
 };
-
+// if background color increase counter for pressed buttons, when counter == amount of buttons=win
 
 document.querySelector('#start').addEventListener('click', handleMakeButton);
 document.addEventListener('click', handleColorButton);
+
+
+
+//TIMER
+let body = document.querySelector('body');
+let finish = document.querySelector('#finish');
+
+let timer = setTimeout(function(){
+    document.removeEventListener('click', handleColorButton);
+    if (  ){
+        body.backgroundColor = 'lime';
+        finish.innerText = 'YOU WIN!';
+        new Audio('./sounds/Ambition1.mp3').play();
+    } else {
+        body.backgroundColor = 'black';
+        finish.innerText = 'Too Slow';
+    };
+}, 20000);
+
+function clickFast(e) { ///
+    clearInterval(countdown);
+    clearTimeout(timer);
+    result.style.backgroundColor = 'green';
+    result.innerText = 'You Win!';
+    result.style.color = 'gold';
+    document.removeEventListener('click', clickFast);
+}
