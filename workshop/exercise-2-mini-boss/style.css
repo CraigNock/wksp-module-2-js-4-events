@@ -18,9 +18,32 @@ body {
     border-radius: 5px;
     color: whitesmoke;
 }
+/*current time */
+.section1 > p {
+    color: rgb(142, 180, 250);
+}
 
+/*stopwatch */
 
+.watchTime > span {
+    font-size: 2rem;
+    color: rgb(194, 253, 171);
+}
+
+/*timer */
 
 .time-text {
     font-size: 1.5rem;
+}
+
+.time-text > span {
+    color: rgb(242, 153, 245);
+}
+
+
+
+
+
+.section3 > input {
+    width: 40%;
 }

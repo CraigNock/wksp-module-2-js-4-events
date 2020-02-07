@@ -9,22 +9,25 @@
 <body>
     <div class="section1">
         <h1>Clock</h1>
-        <p>The current time is:</p>
+        <h3>The current time is:</h3>
         <p id="currentTime"></p>
     </div>
 
     <div class = 'section2'>
         <h1>Stopwatch</h1>
-        <p id="stopwatch">00:00</p>
-        <button>Start/Stop</button>
+        <p class="watchTime">
+            <span id="watchMin">00</span>:
+            <span id="watchSec">00</span>
+        </p>
+        <button id="stopButton">Start/Stop</button>
 
     </div>
 
     <div class = 'section3'>
         <h1>Timer</h1>
-        <h3>Enter Time:</h3>
+        <h3>Enter Time (secs):</h3>
         <input type="text">
-        <button>Start</button>
+        <button id="timerButton">Start</button>
         <p class="time-text">You have <span id="timer"></span> seconds remaining.</p>
     </div>
 
