@@ -6,13 +6,29 @@ function addZ(x){
     return x;
 }
 
-//make buttons
 
+//VARIABLES
 let button = 0;
 let buttonGen = 0;
 let genStop = 0;
-let AMOUNT = 20;
+let AMOUNT = Math.floor(Math.random() * 19) +1 ;
+let pressCount = 0;
 
+let countdown = 0;
+let timer = 0;
+let winCheck = 0;
+
+let locationX = [];
+let locationY = [];
+
+const body = document.querySelector('body');
+const finish = document.querySelector('#finish');
+const timeText = document.querySelector('.time-text');
+const time = document.querySelector('#time');
+const zone = document.querySelector('#zone');
+
+
+//make buttons
 function handleMakeButton(e){
     document.querySelector('#start').removeEventListener('click', handleMakeButton);
     (e.target).style.display = 'none';
@@ -23,20 +39,18 @@ function handleMakeButton(e){
         button.id = `${addZ(i)}`;
         button.innerText = `${addZ(i)}`
         randPos(button);
-        document.querySelector('#zone').appendChild(button);
+        zone.appendChild(button);
         i++;
     },100);
     genStop = setTimeout(() => {
         clearInterval(buttonGen);
         i = 1
     }, AMOUNT*100);
-
+    checkForWin()
+    fullTimer()
 };
 
 //position randomiser + stop overlap. Aka:I should have just made a grid...
-let locationX = [];
-let locationY = [];
-
 function randPos(name) {
     let x = Math.random() *100;
     let y = Math.random() *100;
@@ -56,44 +70,57 @@ function randPos(name) {
 };
 
 
-
 //color buttons
 function handleColorButton(e) {
     let bid = e.target;
     if (bid.className === 'buttons'){
+        console.log('y');
+        bid.className = 'pressed';
+        pressCount++;
         
-        bid.style.backgroundColor = 'darkgreen';
-        bid.style.color = 'whitesmoke';
-    }
+    };
 };
 // if background color increase counter for pressed buttons, when counter == amount of buttons=win
 
-document.querySelector('#start').addEventListener('click', handleMakeButton);
-document.addEventListener('click', handleColorButton);
-
-
+//WIN CHECKER & win result
+function checkForWin(){
+    let winCheck = setInterval(function(){
+        if ( pressCount === AMOUNT ){
+            console.log('win');
+            clearInterval(countdown);
+            clearInterval (winCheck);
+            clearTimeout(timer);
+            document.removeEventListener('click', handleColorButton);
+            body.style.backgroundColor = 'orange';
+            finish.style.display = 'block';
+            finish.style.color = 'cyan';
+            finish.style.borderColor = 'darkcyan';
+            finish.innerText = 'YOU WIN!';
+            new Audio('./sounds/Ambition1.mp3').play();
+        };
+        
+    }, 100);
+};
 
 //TIMER
-let body = document.querySelector('body');
-let finish = document.querySelector('#finish');
-
-let timer = setTimeout(function(){
-    document.removeEventListener('click', handleColorButton);
-    if (  ){
-        body.backgroundColor = 'lime';
-        finish.innerText = 'YOU WIN!';
-        new Audio('./sounds/Ambition1.mp3').play();
-    } else {
-        body.backgroundColor = 'black';
+function fullTimer(){
+    //countdown
+    timeText.style.display = 'block';
+    time.innerText = `${AMOUNT * 2}`;
+    countdown = setInterval(function() {
+        time.innerText =  `${time.innerText -1}`
+    }, 1000);
+    //timer itself & lose result
+    timer = setTimeout(function(){
+        document.removeEventListener('click', handleColorButton);
+        body.style.backgroundColor = 'black';
         finish.innerText = 'Too Slow';
-    };
-}, 20000);
+        finish.style.display = 'block';
+        clearInterval(countdown);
+    }, AMOUNT*1500);
+};
 
-function clickFast(e) { ///
-    clearInterval(countdown);
-    clearTimeout(timer);
-    result.style.backgroundColor = 'green';
-    result.innerText = 'You Win!';
-    result.style.color = 'gold';
-    document.removeEventListener('click', clickFast);
-}
+
+    document.querySelector('#start').addEventListener('click', handleMakeButton);
+    document.addEventListener('click', handleColorButton);
+

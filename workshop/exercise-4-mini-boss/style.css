@@ -8,29 +8,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.zone {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    height: 80vh;
-    width: 80vw;
-    
-}
-
-
-.buttons {
-    background-color: goldenrod;
-    margin: .5rem;
-    /* padding: .5rem; */
-    border-radius: 20px;
-    border-color: whitesmoke;
-    font-weight: 800;
-    height: 2rem;
-    width: 2rem;
-    text-align: center;
-    outline: none;
+    font-family: 'Lemonada', cursive;
 }
 
 .start {
@@ -42,11 +20,70 @@ body {
     border-radius: 5px;
 }
 
+.time-text {
+    display: none;
+    margin: 0;
+    padding: 2rem 0 0 0 ;
+    font-size: 1rem;
+    text-align: center;
+    height: 10vh;
+}
+.time-text > span {
+    color: tomato;
+}
+
+.zone {
+    position: relative;
+    margin: 3rem;
+    padding: 0;
+    height: 70vh;
+    width: 70vw;
+    
+}
+
+
+.buttons {
+    background-color: goldenrod;
+    margin: .5rem;
+    border-radius: 20px;
+    border-color: whitesmoke;
+    font-weight: 800;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    outline: none;
+}
+
+.pressed {
+    background-color: darkgreen;
+    color: whitesmoke;
+    margin: .5rem;
+    border-radius: 20px;
+    border-color: whitesmoke;
+    font-weight: 800;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    outline: none;
+}
+
+
+
 .finish {
     display: none;
     position: fixed;
+    color: maroon;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
     top: 40vh;
-    background-color: transparent;
+    background-color: rgb(36, 36, 36);
+    padding: 1rem;
+    border: 5px solid rgb(70, 0, 0);
+    border-radius: 10px;
     z-index: 2;
 }
 
+p {
+    color: whitesmoke;
+}
