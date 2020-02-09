@@ -10,7 +10,7 @@ const instruct = document.querySelector('#instruct');
 const instructions = document.querySelector('#instructions');
 const close = document.querySelector('.close');
 const signal = document.querySelector('#signal');
-
+const rings = document.querySelector('.rings');
 
 const result = document.querySelector('#result');
 const restart = document.querySelector('#restart');
@@ -63,6 +63,7 @@ function startGameHandle(e){
     start.removeEventListener('click', startGameHandle)
     instruct.removeEventListener('click', showInstructHandle);
     close.removeEventListener('click', closeInstructHandle);
+    resetRings();
     result.style.display = 'none';
     startMenu.style.display = 'none';
     signal.style.display = 'none';
@@ -75,10 +76,6 @@ function startGameHandle(e){
 
 //GAME
 
-
-
-
-
 //GET POINT
 function keyDownHandle(e){
     document.removeEventListener('keydown', keyDownHandle);
@@ -87,8 +84,6 @@ function keyDownHandle(e){
     } else {
         whoPoint(e.key);
     }
-    
-    
 }
 
 // WIN/LOSE ROUND
@@ -107,19 +102,24 @@ function whoPoint(key) {
 function whoEarly(key) {
     if (key === 'q') {
         console.log('p');
-        winRound('Player 2');
+        winRound('player2');
         p2Count++
     } else if (key === 'p') {
             console.log('q');
-            winRound('Player 1');
+            winRound('player1');
             p1Count++
     };
 }
 
 function winRound(player) {
     console.log(`${player} won a point!`);
-    //add ring to area?
-    //animate
+    
+    //sprite switch to run, 
+    // translate to center,
+    //sprite switch to taunt
+    // ring disappear
+    //reset sprite
+
     //delay
     newRound = setTimeout(function() {
         startGameHandle();
@@ -127,17 +127,52 @@ function winRound(player) {
     
 }
 
-//WIN GAME
+function resetRings(){
+    document.querySelector('#p1_3').style.display = 'none';
+    document.querySelector('#p1_2').style.display = 'none';
+    document.querySelector('#p1_1').style.display = 'none';
+    document.querySelector('#p2_3').style.display = 'none';
+    document.querySelector('#p2_2').style.display = 'none';
+    document.querySelector('#p2_1').style.display = 'none';
+}
+
+//WIN GAME & GIVE POINTS
 
 function winChecker(){
     winCheck = setInterval(function() {
-        if (p1Count === 3) {
-            document.removeEventListener('keydown', keyDownHandle);
-            giveResult('1');
-        } else if (p2Count === 3){
-            document.removeEventListener('keydown', keyDownHandle);
-            giveResult('2');
-        };
+        switch(p1Count){
+            case 3 :
+                document.removeEventListener('keydown', keyDownHandle);
+                document.querySelector('#p1_3').style.display = 'block';
+                document.querySelector('#p1_2').style.display = 'block';
+                document.querySelector('#p1_1').style.display = 'block';
+                giveResult('1');
+                break;
+            case 2 :
+                document.querySelector('#p1_2').style.display = 'block';
+                document.querySelector('#p1_1').style.display = 'block';
+                break;
+            case 1 :
+                document.querySelector('#p1_1').style.display = 'block';
+                break;
+        }
+
+        switch(p2Count){
+            case 3 :
+                document.removeEventListener('keydown', keyDownHandle);
+                document.querySelector('#p2_3').style.display = 'block';
+                document.querySelector('#p2_2').style.display = 'block';
+                document.querySelector('#p2_1').style.display = 'block';
+                giveResult('2');
+                break;
+            case 2 :
+                document.querySelector('#p2_2').style.display = 'block';
+                document.querySelector('#p2_1').style.display = 'block';
+                break;
+            case 1 :
+                document.querySelector('#p2_1').style.display = 'block';
+                break;
+        }
     }, 500);
 }
 
@@ -150,10 +185,11 @@ function giveResult(winner){
     signal.style.display = 'none';
     p1Count = 0;
     p2Count = 0;
+    //switch sprite for taunt sprite
     restart.addEventListener('click', startGameHandle);
 }
 
 
-//LISTENERS
+//INITIAL LISTENERS
 start.addEventListener('click', startGameHandle);
 instruct.addEventListener('click', showInstructHandle);

@@ -10,6 +10,29 @@ body {
 
 }
 
+/* SCOREBOARD */
+.scoreboard {
+    position: fixed;
+    top: 0%;
+    margin: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+}
+.scoreboard > ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+}
+.rings {
+    display: none;
+    height: 2rem;
+    width: 2rem;
+    margin: 0 .5rem;
+}
+
 /* START MENU */
 .start-screen {
     height: 80vh;
