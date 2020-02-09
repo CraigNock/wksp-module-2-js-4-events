@@ -11,7 +11,7 @@
 
 <body>
     <div class="start-screen">
-        <div class="start-menu">
+        <div id="startMenu" class="start-menu">
             <button class= 'buttons' id="start">Start Game</button>
             <button class="buttons" id="instruct">Instructions</button>
         </div>
@@ -23,6 +23,20 @@
             Pressing your key before the signal appears will result in a loss. <br>
         </p>
     </div>
+
+    <div id="result" class="result">
+        <h1>Player <span id="winner"></span> Wins!</h1>
+        <button id="restart">Restart</button>
+    </div>
+
+    <div class="signalZone">
+        <img class="signal" id="signal" src="../exercise-5-boss-level/imgs/signal.png" alt="signal">
+    </div>
+
+    <div class="spriteZone">
+
+    </div>
+
     <script src="../exercise-5-boss-level/app.js"></script>
 </body>
 </html>

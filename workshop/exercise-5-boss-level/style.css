@@ -7,9 +7,10 @@ body {
     background-image: url(../exercise-5-boss-level/imgs/bg.gif);
     background-size: cover;
     background-position: center;
+
 }
 
-
+/* START MENU */
 .start-screen {
     height: 80vh;
     display: flex;
@@ -18,13 +19,11 @@ body {
     justify-content: center;
 }
 
-
-.buttons, .instructions {
+.buttons, .instructions, .result > button {
     background-color: rgb(50, 70, 87);
     color: whitesmoke;
     border: 3px solid slategray;
 }
-
 
 .buttons {
     display: block;
@@ -49,3 +48,42 @@ body {
     background-color: rgb(50, 70, 87);
     color: whitesmoke;
 }
+
+/* WIN/RESTART  */
+
+.result {
+    position: absolute;
+    width: 40%;
+    top: 30%;
+    left: 30%;
+    display: none;
+    color: whitesmoke;
+    z-index: 2;
+    background-color: rgb(50, 70, 87,.5);
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+.result > button {
+    display: block;
+    margin: 1rem;
+    height: 2rem;
+    width: 8rem;
+    margin: 0 auto;
+}
+
+
+/* SIGNAL, POINTS */
+
+.signal {
+    position: fixed;
+    display: none;
+    z-index: -1;
+    height: 4rem;
+    width: 4rem;
+}
+
+/* PLAYERS */
+
