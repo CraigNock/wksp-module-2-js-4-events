@@ -110,3 +110,40 @@ body {
 
 /* PLAYERS */
 
+.spriteZone {
+    /* position: relative; */
+    display: inline-block;
+    width: 100vw;
+    /* justify-content: space-between; */
+    /* margin: 0 5rem; */
+}
+
+.p1sprite {
+    position: relative;
+    /* left: 0%; */
+    height: 5rem;
+    width: 5rem;
+    animation-name: run1;
+    animation-duration: 3s;
+}
+
+@keyframes run1 {
+    from {left: 0};
+    to {left: 500px;}
+}
+
+.p2sprite {
+    position: absolute;
+    right: 0%;
+    height: 5rem;
+    width: 4.5rem;
+    /* animation-name: run2;
+    animation-duration: 3s; */
+}
+
+
+
+/* @keyframes run2 {
+    from {};
+    to {transform: translate(-35vw, 0px)}
+}; */

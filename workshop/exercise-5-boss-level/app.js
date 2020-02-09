@@ -190,6 +190,10 @@ function giveResult(winner){
 }
 
 
+// function animatePoint(){
+
+// }
+
 //INITIAL LISTENERS
 start.addEventListener('click', startGameHandle);
 instruct.addEventListener('click', showInstructHandle);
