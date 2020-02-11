@@ -68,7 +68,7 @@ function startGameHandle(e){
     startMenu.style.display = 'none';
     signal.style.display = 'none';
     
-    winChecker(); // starts checker for win condition
+    
     setStartTime(); //starts signal maker
     document.addEventListener('keydown', keyDownHandle);
 
@@ -84,6 +84,7 @@ function keyDownHandle(e){
     } else {
         whoPoint(e.key);
     }
+    winChecker(); // checks for win condition
 }
 
 // WIN/LOSE ROUND
@@ -139,41 +140,39 @@ function resetRings(){
 //WIN GAME & GIVE POINTS
 
 function winChecker(){
-    winCheck = setInterval(function() {
-        switch(p1Count){
-            case 3 :
-                document.removeEventListener('keydown', keyDownHandle);
-                document.querySelector('#p1_3').style.display = 'block';
-                document.querySelector('#p1_2').style.display = 'block';
-                document.querySelector('#p1_1').style.display = 'block';
-                giveResult('1');
-                break;
-            case 2 :
-                document.querySelector('#p1_2').style.display = 'block';
-                document.querySelector('#p1_1').style.display = 'block';
-                break;
-            case 1 :
-                document.querySelector('#p1_1').style.display = 'block';
-                break;
-        }
+    switch(p1Count){
+        case 3 :
+            document.removeEventListener('keydown', keyDownHandle);
+            document.querySelector('#p1_3').style.display = 'block'; 
+            document.querySelector('#p1_2').style.display = 'block';
+            document.querySelector('#p1_1').style.display = 'block';
+            giveResult('1');
+            break;
+        case 2 :
+            document.querySelector('#p1_2').style.display = 'block';
+            document.querySelector('#p1_1').style.display = 'block';
+            break;
+        case 1 :
+            document.querySelector('#p1_1').style.display = 'block';
+            break;
+    }
 
-        switch(p2Count){
-            case 3 :
-                document.removeEventListener('keydown', keyDownHandle);
-                document.querySelector('#p2_3').style.display = 'block';
-                document.querySelector('#p2_2').style.display = 'block';
-                document.querySelector('#p2_1').style.display = 'block';
-                giveResult('2');
-                break;
-            case 2 :
-                document.querySelector('#p2_2').style.display = 'block';
-                document.querySelector('#p2_1').style.display = 'block';
-                break;
-            case 1 :
-                document.querySelector('#p2_1').style.display = 'block';
-                break;
-        }
-    }, 500);
+    switch(p2Count){
+        case 3 :
+            document.removeEventListener('keydown', keyDownHandle);
+            document.querySelector('#p2_3').style.display = 'block';
+            document.querySelector('#p2_2').style.display = 'block';
+            document.querySelector('#p2_1').style.display = 'block';
+            giveResult('2');
+            break;
+        case 2 :
+            document.querySelector('#p2_2').style.display = 'block';
+            document.querySelector('#p2_1').style.display = 'block';
+            break;
+        case 1 :
+            document.querySelector('#p2_1').style.display = 'block';
+            break;
+    }
 }
 
 function giveResult(winner){
@@ -190,9 +189,9 @@ function giveResult(winner){
 }
 
 
-// function animatePoint(){
+function animatePoint(){
 
-// }
+}
 
 //INITIAL LISTENERS
 start.addEventListener('click', startGameHandle);

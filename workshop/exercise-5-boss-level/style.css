@@ -111,18 +111,25 @@ body {
 /* PLAYERS */
 
 .spriteZone {
-    /* position: relative; */
+    position: relative;
     display: inline-block;
     width: 100vw;
     /* justify-content: space-between; */
     /* margin: 0 5rem; */
 }
 
-.p1sprite {
-    position: relative;
-    /* left: 0%; */
+img{
+    object-fit: fill;
     height: 5rem;
     width: 5rem;
+}
+.p1sprite {
+    display: inline-block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    /* left: 0%; */
+    
     animation-name: run1;
     animation-duration: 3s;
 }
