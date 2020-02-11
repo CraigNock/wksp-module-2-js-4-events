@@ -130,8 +130,7 @@ img{
     padding: 0;
     /* left: 0%; */
     
-    animation-name: run1;
-    animation-duration: 3s;
+    animation: run1 ease-in 5s;
 }
 
 @keyframes run1 {
