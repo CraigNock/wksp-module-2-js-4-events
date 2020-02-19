@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: goldenrod;
+}
+
+h1 {
+    text-decoration: underline goldenrod;
+}
+
+button {
+    background-color: whitesmoke;
+    color: rgb(102, 77, 15);
+    font-weight: 800;
+    height: 1.8rem;
+    margin: 0;
+    border-radius: 5px;    
+
+
+}
+
+.section1, .section2, .section3 {
+    text-align: center;
+    height: fit-content;
+    width: 20%;
+    padding: 2rem;
+    background-color: rgb(77, 76, 76);
+    border-radius: 5px;
+    color: whitesmoke;
+}
+/*current time */
+.section1 > p {
+    color: rgb(142, 180, 250);
+}
+
+/*stopwatch */
+
+.watchTime > span {
+    font-size: 2rem;
+    color: rgb(194, 253, 171);
+}
+
+/*timer */
+
+.time-text {
+    font-size: 1.5rem;
+}
+
+.time-text > span {
+    color: rgb(242, 153, 245);
+}
+
+
+.section3 > input {
+    text-align: center;
+    padding-top: .25rem;
+    border-radius: 5px;    
+}
+
+
+.section3 > input {
+    width: 40%;
+}

@@ -9,3 +9,23 @@
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
 // --------------------------------------------------
+
+const main = document.querySelector('.main');
+main.style.display = 'flex';
+main.style.justifyContent = 'center';
+main.style.alignItems = 'center';
+main.style.height = '100vh';
+main.style.backgroundColor = 'red';
+
+
+function clickAlert(e) {
+    const fade = setTimeout (function() {
+        main.innerText = '';
+        main.style.backgroundColor = 'red';
+        clearTimeout(fade);
+    }, 2000);
+    main.innerText = 'Hey, way to click man';
+    main.style.backgroundColor = 'green';
+}
+
+document.addEventListener('click', clickAlert);

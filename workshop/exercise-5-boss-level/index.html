@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="../exercise-5-boss-level/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lemonada&display=swap" rel="stylesheet">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="scoreboard">
+        <ul>
+            <li><img id="p1_1" class="rings" src="../exercise-5-boss-level/imgs/prize.gif" alt="ring"></li>
+            <li><img id="p1_2" class="rings" src="../exercise-5-boss-level/imgs/prize.gif" alt="ring"></li>
+            <li><img id="p1_3" class="rings" src="../exercise-5-boss-level/imgs/prize.gif" alt="ring"></li>
+        </ul>
+        <ul>
+            <li><img id="p2_1" class="rings" src="../exercise-5-boss-level/imgs/prize.gif" alt="ring"></li>
+            <li><img id="p2_2" class="rings" src="../exercise-5-boss-level/imgs/prize.gif" alt="ring"></li>
+            <li><img id="p2_3" class="rings" src="../exercise-5-boss-level/imgs/prize.gif" alt="ring"></li>
+        </ul>
+    </div>
+
+
+    <div class="start-screen">
+        <div id="startMenu" class="start-menu">
+            <button class= 'buttons' id="start">Start Game</button>
+            <button class="buttons" id="instruct">Instructions</button>
+        </div>
+        <p class = 'instructions' id="instructions">
+            <button class="close">X</button>
+            Two players wait for a signal to start after a random delay.<br>
+            Once the start is signalled, the first player to press their key wins.<br> 
+            Player 1 presses the 'Q' key, Player 2 presses the 'P' key. <br>
+            Pressing your key before the signal appears will result in a loss. <br>
+        </p>
+    </div>
+
+    <div id="result" class="result">
+        <h1>Player <span id="winner"></span> Wins!</h1>
+        <button id="restart">Restart</button>
+    </div>
+
+    <div class="signalZone">
+        <img class="signal" id="signal" src="../exercise-5-boss-level/imgs/signal.png" alt="signal">
+    </div>
+
+    <div class="spriteZone">
+        <div class="p1sprite">
+            <img  src="../exercise-5-boss-level/imgs/p1.gif" alt="player1">
+        </div>
+        <div class="p2sprite">
+            <img  src="../exercise-5-boss-level/imgs/p2.gif" alt="player2">
+        </div>
+    </div>
+
+    <script src="../exercise-5-boss-level/app.js"></script>
+</body>
+</html>
